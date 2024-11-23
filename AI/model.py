@@ -21,34 +21,23 @@ class Model:
         self.resposne = {}
     
 
-    def invoke(self, first, second, language):
-        response = self.chain.invoke({"first": first, "second": second, "language": language})
+    def invoke(self, sentences, language):
+        response = self.chain.invoke({"sentences": sentences, "language": language})
         return response.content
 
-
-    def answer(self, first, second, language):
-        content = self.invoke(first, second, language)
-        answer_json = {}
-
-        res = content.split("\n")
-        for sentence in res:
-
-            if "To make the second sentence correct" in sentence:
-                answer_json["correct"] = sentence
-            
-            if "Explanation:" in sentence:
-                answer_json["explanation"] = sentence
-        
-        return answer_json
     
 
     def handle_differences(self, differences, language):
-        answers = []
-        for (first, second) in differences:
-            answers.append(self.answer(first, second, language))
+        answer = self.invoke(differences, language).split('\n')
+        filtered_answer = [element for element in answer if element != '']
+        final_answers = []
+
+
+
+        for i in range(0, len(filtered_answer), 2):
+            final_answers.append({"correct": filtered_answer[i], "explanation": filtered_answer[i+1]})
         
-        
-        json_string = json.dumps(answers, indent=4)
+        json_string = json.dumps(final_answers, indent=4)
 
         return json_string
         
