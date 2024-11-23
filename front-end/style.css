@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    overflow: hidden;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,8 +19,6 @@ body {
 }
 
 .left_pane, .right_pane {
-    width: 47%;
-    aspect-ratio: 1;
     border: 4px dashed;
     background-color: transparent;
     display: flex;
@@ -35,23 +33,15 @@ body {
     border-color: #4caf50;
 }
 
-.left_pane::before {
-    color: #4caf50;
-    font-size: 20px;
-    font-weight: bold;
-}
-
 .right_pane {
     border-color: #2196f3;
-}
-
-.right_pane::before {
-    color: #2196f3;
-    font-size: 20px;
-    font-weight: bold;
 }
 
 .file_upload * {
   width: 100%;
   height: 100%;
+}
+
+iframe{
+    display: table-row;
 }
