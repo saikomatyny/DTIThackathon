@@ -8,15 +8,17 @@
     <title>ChatBot</title>
 </head>
 <body>
-  <h1>App name</h1>
+  <h1 class="site_name">App name</h1>
   <div class="file-upload">
-      <div class="left-pane">
-          <h2>Drag and Drop correctly filled form</h2>
-      </div>
-      <div class="right-pane">
-          <h2>Drag and Drop user-filled form</h2>
-      </div>
-  </div>
+    <div class="left-pane">
+        <input type="file" accept="application/pdf" class="file-input" data-pane="left" hidden>
+        <h2>Upload correctly filled form</h2>
+    </div>
+    <div class="right-pane">
+        <input type="file" accept="application/pdf" class="file-input" data-pane="right" hidden>
+        <h2>Upload user-filled form</h2>
+    </div>
+</div>
   <button>Send</button>
 </body>
 </html>
