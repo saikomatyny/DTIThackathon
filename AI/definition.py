@@ -28,9 +28,8 @@ class Definition:
         for i in list_of_differences:
             self.highlited_text += f"\033[91m{lines[i]}\033[0m" + '\n'
 
-        highlighted_text = '\n'.join(lines)
-
-        return highlighted_text.encode('utf-8')
+        self.highlited_text = ('\n'.join(self.highlited_text)).encode('utf-8')
+        
     def get_pdf_differences(self, pdf_correct, pdf_user):
 
         self.differences = "" 
