@@ -20,6 +20,7 @@ class Model:
         self.chain = prompt_template | model
         self.resposne = {}
     
+
     def invoke(self, first, second):
         response = self.chain.invoke({"first": first, "second": second})
         return response.content
@@ -32,7 +33,7 @@ class Model:
         res = content.split("\n")
         for sentence in res:
 
-            if "To make the second sentence correct":
+            if "To make the second sentence correct" in sentence:
                 answer_json["correct"] = sentence
             
             if "Explanation:" in sentence:

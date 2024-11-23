@@ -2,35 +2,24 @@ from model import Model
 from definition import Definition
 
 
-prompt = """I have 2 sentences {first} and {second} 
-extract me parts of sentences where they are different 
-and when we suggest that first is correct what should I add/remove/fix globally in second sentence in form  To make the second sentence correct ....
-and explain why in form Explanation: "explanation" """
+prompt = """
+Given two sentences, where the first is correct: "{first}" and the second potentially has errors: "{second}", evaluate both.
+If the second sentence deviates from the correctness of the first in meaning, grammar, or style, suggest necessary corrections.
+Provide a correction in the format: "To make the second sentence correct ..."
+Include an explanation based on grammar rules, contextual clarity, and stylistic consistency: "Explanation: ...."
+"""
 
 solver = Model(prompt)
 definer = Definition()
 
-pdf_path1 = 'Ziadost_filled.pdf'
-pdf_path2 = 'Ziadost_user.pdf'
 
-definer.get_differences(pdf_path1, pdf_path2)
+def correct_answer(filetype="pdf", language="english"):
 
-# print(definer.differences)
+    pdf_correct = 'templateFile.pdf'
+    pdf_user = 'userFile.pdf'
 
-print(solver.handle_differences(definer.differences))
+    definer.get_differences(pdf_correct, pdf_user)
 
-
-# for (first, second) in definer.differences:
-#     res = solver.invoke(first, second).split("\n")
-
-#     for i in res:
-#         if "Explanation:" in i or "To make the second sentence correct" in i:
-#             print(i)
-#             print()
+    return solver.handle_differences(definer.differences)
 
 
-
-# first = "- Stavebník, meno a priezvisko (názov): Illia"
-# second = "- Stavebník, meno a priezvisko (názov): Illia Volk"
-
-# print(solver.invoke(first, second))
