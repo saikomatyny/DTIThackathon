@@ -1,7 +1,9 @@
 from base64 import b64decode
 
+from AI.main import correct_answer
+
 from fastapi import FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware 
 
 app = FastAPI()
 
@@ -22,3 +24,7 @@ async def create_files(request: Request):
 
     with open('templateFile.pdf', 'wb') as fw:
         fw.write(b64decode(item["templateFile"]))
+
+    result = correct_answer()
+
+    return result

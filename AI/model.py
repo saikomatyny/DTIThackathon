@@ -8,10 +8,10 @@ import json
 
 
 class Model:
-    def __init__(self, prompt) -> None:
+    def __init__(self, prompt, temperature=0.3) -> None:
 
         load_dotenv()
-        model = ChatOpenAI(model="gpt-4o", api_key=os.getenv("OPENAI_API_KEY"), temperature=0.3)
+        model = ChatOpenAI(model="gpt-4o", api_key=os.getenv("OPENAI_API_KEY"), temperature=temperature)
 
         prompt_template = ChatPromptTemplate.from_messages(
             [("system", prompt)]
@@ -21,13 +21,13 @@ class Model:
         self.resposne = {}
     
 
-    def invoke(self, first, second):
-        response = self.chain.invoke({"first": first, "second": second})
+    def invoke(self, first, second, language):
+        response = self.chain.invoke({"first": first, "second": second, "language": language})
         return response.content
 
 
-    def answer(self, first, second):
-        content = self.invoke(first, second)
+    def answer(self, first, second, language):
+        content = self.invoke(first, second, language)
         answer_json = {}
 
         res = content.split("\n")
@@ -42,10 +42,10 @@ class Model:
         return answer_json
     
 
-    def handle_differences(self, differences):
+    def handle_differences(self, differences, language):
         answers = []
         for (first, second) in differences:
-            answers.append(self.answer(first, second))
+            answers.append(self.answer(first, second, language))
         
         
         json_string = json.dumps(answers, indent=4)

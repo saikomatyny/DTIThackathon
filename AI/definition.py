@@ -10,7 +10,7 @@ class Definition:
         text = ''
         with pdfplumber.open(path) as pdf:
             for page in pdf.pages:
-                text += page.extract_text() + '\n'  # Adding a newline character for better readability
+                text += page.extract_text() + '\n'
         return text
 
     def compare_texts(self, text1, text2):
@@ -22,19 +22,10 @@ class Definition:
                 self.differences.append([line1, line2])
         
 
-    def get_differences(self, pdf_first, pdf_second):
-        pdf_path1 = 'Ziadost_filled.pdf'
-        pdf_path2 = 'Ziadost_user.pdf'
+    def get_pdf_differences(self, pdf_correct, pdf_user):
 
-        text1 = self.extract_text_from_pdf(pdf_path1)
-        text2 = self.extract_text_from_pdf(pdf_path2)
+        text_correct = self.extract_text_from_pdf(pdf_correct)
+        text_user = self.extract_text_from_pdf(pdf_user)
 
-        self.compare_texts(text1, text2)
+        self.compare_texts(text_correct, text_user)
 
-# definition = Definition()
-# pdf_path1 = 'Ziadost_filled.pdf'
-# pdf_path2 = 'Ziadost_user.pdf'
-
-# definition.get_differences(pdf_path1, pdf_path2)
-
-# print(definition.differences)
