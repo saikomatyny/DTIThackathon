@@ -19,12 +19,7 @@ app.add_middleware(
 async def create_files(request: Request):
     item = await request.json()
 
-    with open('userFile.pdf', 'wb') as fw:
-        fw.write(b64decode(item["userFile"]))
 
-    with open('templateFile.pdf', 'wb') as fw:
-        fw.write(b64decode(item["templateFile"]))
-
-    result = correct_answer()
+    result = correct_answer(item)
 
     return result

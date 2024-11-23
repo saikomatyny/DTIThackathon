@@ -1,5 +1,6 @@
 from .model import Model
 from .definition import Definition
+from base64 import b64decode
 
 
 prompt = """
@@ -14,11 +15,17 @@ solver = Model(prompt)
 definer = Definition()
 
 
-def correct_answer(filetype="pdf", language="english"):
+def correct_answer(item, filetype="pdf", language="english"):
 
 
-    pdf_correct = '../templateFile.pdf'
-    pdf_user = '../userFile.pdf'
+    pdf_correct = 'templateFile.pdf'
+    pdf_user = 'userFile.pdf'
+
+    with open('userFile.pdf', 'wb') as fw:
+        fw.write(b64decode(item["userFile"]))
+
+    with open('templateFile.pdf', 'wb') as fw:
+        fw.write(b64decode(item["templateFile"]))
 
     if filetype == "pdf":
         definer.get_pdf_differences(pdf_correct, pdf_user)
