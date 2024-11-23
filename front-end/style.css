@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #363636;
+}
+
+.file_upload {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 90%;
+}
+
+.left_pane, .right_pane {
+    width: 47%;
+    aspect-ratio: 1;
+    border: 4px dashed;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.left_pane {
+    border-color: #4caf50;
+}
+
+.left_pane::before {
+    content: "First Doc";
+    color: #4caf50;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.right_pane {
+    border-color: #2196f3;
+}
+
+.right_pane::before {
+    content: "Second Doc";
+    color: #2196f3;
+    font-size: 20px;
+    font-weight: bold;
+}
