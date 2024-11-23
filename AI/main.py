@@ -31,10 +31,9 @@ def correct_answer(item, filetype="pdf", language="english"):
     if filetype == "pdf":
         definer.get_pdf_differences(pdf_correct, pdf_user)
     
-    return solver.handle_differences(definer.differences, language)
+    return solver.handle_differences(definer.differences, language), definer.list_of_differences
 
 
-print(correct_answer())
 
 # pdf_correct = 'Ziadost_filled.pdf'
 # pdf_user = 'Ziadost_user.pdf'

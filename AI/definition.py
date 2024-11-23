@@ -4,7 +4,8 @@ import pdfplumber
 class Definition:
 
     def __init__(self) -> None:
-        self.differences = "" 
+        self.differences = ""
+        self.list_of_differences = []
 
     def extract_text_from_pdf(self, path):
         text = ''
@@ -17,10 +18,13 @@ class Definition:
 
         lines1 = text1.split('\n')
         lines2 = text2.split('\n')
+
+        i = 0
         for line1, line2 in zip(lines1, lines2):
             if line1 != line2:
                 self.differences+=f"First sentence: {line1}\nSecond sentence: {line2}\n"
-        
+                self.list_of_differences.append(i)
+            i += 1
 
     def get_pdf_differences(self, pdf_correct, pdf_user):
 

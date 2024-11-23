@@ -2,3 +2,4 @@ env
 __pycache__
 .vscode
 AI/.env
+remake_to_pdf*
