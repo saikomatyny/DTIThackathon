@@ -1,37 +1,30 @@
 const leftPane = document.querySelector(".left_pane");
 const rightPane = document.querySelector(".right_pane");
+const files = [];
 
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-    userButtonUpload.addEventListener(eventName, preventDefaults, false);
-    templateButtonUpload.addEventListener(eventName, preventDefaults, false);
+    leftPane.addEventListener(eventName, preventDefaults, false);
+    rightPane.addEventListener(eventName, preventDefaults, false);
 });
 function preventDefaults(e) {
     e.preventDefault();
     e.stopPropagation();
 }
 
+[leftPane, rightPane].forEach(pane => {
+  pane.addEventListener("drop", handleDrop, false);
 
-userButtonUpload.addEventListener('drop', (e) => {
-  userButtonUpload.style.visibility = "hidden";
-  handleDrop(e);
-}, false);
-templateButtonUpload.addEventListener('drop', (e) => {
-  templateButtonUpload.style.visibility = "hidden";
-  handleDrop(e);
-}, false);
-
-function handleDrop(e) {
-    const files = e.dataTransfer.files; // Get the files from the drop
+});
+function handleDrop(event) {
+    const pane = event.target;
+    const files = event.dataTransfer.files; // Get the files from the drop
     if (files.length > 0) {
         const file = files[0];
         if (file.type === 'application/pdf') {
             const fileURL = URL.createObjectURL(file); // Create a URL for the PDF
-            pdfDisplay.innerHTML = `<iframe src="${fileURL}"></iframe>`;
+            pane.innerHTML = `<iframe src="${fileURL}"></iframe>`;
         } else {
-            pdfDisplay.innerHTML = '<p>Please drop a valid PDF file.</p>';
+            pane.innerHTML = '<p>Please drop a valid PDF file.</p>';
         }
     }
 }
-
-
-if ()

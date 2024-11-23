@@ -36,7 +36,6 @@ body {
 }
 
 .left_pane::before {
-    content: "First Doc";
     color: #4caf50;
     font-size: 20px;
     font-weight: bold;
@@ -47,8 +46,12 @@ body {
 }
 
 .right_pane::before {
-    content: "Second Doc";
     color: #2196f3;
     font-size: 20px;
     font-weight: bold;
+}
+
+.file_upload * {
+  width: 100%;
+  height: 100%;
 }
