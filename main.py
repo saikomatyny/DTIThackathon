@@ -19,6 +19,6 @@ app.add_middleware(
 async def create_files(request: Request):
     item = await request.json() # 2 PDF files in base64 format
 
-    result, lines_differnece = correct_answer(item)
+    result, highlited_text = correct_answer(item)
 
-    return {'string' : result, 'lines_difference' : lines_differnece}
+    return {'string' : result, 'highlited_text' : highlited_text}
