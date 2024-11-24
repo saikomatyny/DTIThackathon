@@ -21,7 +21,7 @@ class Model:
         load_dotenv()
         model = ChatOpenAI(model="gpt-4o", api_key=os.getenv("OPENAI_API_KEY"), temperature=temperature)
 
-        file_path = r"dataset\\1.pdf"
+        file_path = os.path.join("AI", "dataset", "1.pdf");
         loader = PyPDFLoader(file_path)
 
         docs = loader.load()
