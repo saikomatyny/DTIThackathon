@@ -188,3 +188,25 @@ iframe {
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
 }
+
+.result-field {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.recommendation {
+  outline: 2px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.recommendation > * {
+  padding: 1rem;
+}
+
+.recommendation-header {
+  background-color: #cfcfd8;
+  border-bottom: 2px solid black;
+}
