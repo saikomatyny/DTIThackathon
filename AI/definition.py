@@ -5,7 +5,7 @@ class Definition:
 
     def __init__(self) -> None:
         self.differences = ""
-        self.highlited_text = ""
+        self.list_of_differences = []
 
     def extract_text_from_pdf(self, path):
         text = ''
@@ -19,17 +19,13 @@ class Definition:
         lines1 = text1.split('\n')
         lines2 = text2.split('\n')
 
+        i = 0
         for line1, line2 in zip(lines1, lines2):
             if line1 != line2:
                 self.differences+=f"First sentence: {line1}\nSecond sentence: {line2}\n"
-    
-    def highlight_differences(self, text, list_of_differences):
-        lines = text.split('\n')
-        for i in list_of_differences:
-            self.highlited_text += f"\033[91m{lines[i]}\033[0m" + '\n'
+                self.list_of_differences.append(i)
+            i += 1
 
-        self.highlited_text = ('\n'.join(self.highlited_text)).encode('utf-8')
-        
     def get_pdf_differences(self, pdf_correct, pdf_user):
 
         self.differences = "" 
