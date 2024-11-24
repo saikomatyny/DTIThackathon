@@ -1,87 +1,200 @@
 :root {
-  --background-color: #363636;
-  --text-color: white;
-  --font-size: 16px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  font-size: 2rem;
-  color: var(--text-color);
-}
-
-html {
-  font-size: var(--font-size);
-}
-
-body {
-    min-height: 100vh;
+    --primary-color: #f06292;
+    --secondary-color: #595959;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --font-family: 'Arial', sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    color: var(--text-color);
     background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    gap: 1rem;
-}
-
-.file-upload {
+    line-height: 1.6;
+  }
+  
+  header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  header nav a {
+    margin-right: 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  header nav .compare-btn {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  .intro-left {
     flex: 1;
-}
-
-.file-upload > * {
-  flex: 1;
-}
-
-.left-pane, 
-.right-pane {
-    border: 4px dashed;
+  }
+  
+  .intro-right {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.3);
-    margin-left: 2%;
-    margin-right: 2%;
-}
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #fff;
+    margin: 2rem 0;
+  }
+  
+  .feature {
+    text-align: center;
+    flex: 1;
+    margin: 0 1rem;
+  }
+  
+  .feature .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .upload {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #fff;
+    margin: 2rem 0;
+  }
 
-.left-pane {
+  .left-pane {
     border-color: #04ff00;
+    text-align: center;
+    flex: 1;
+    margin: 0 1rem;
 }
 
 .right-pane {
     border-color: #2196f3;
+    text-align: center;
+    flex: 1;
+    margin: 0 1rem;
+}
+  
+  .upload-box {
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    padding: 2rem;
+    cursor: pointer;
+    margin: 1rem 0;
+  }
+  
+  .upload-box img {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .upload-box:hover {
+    background-color: rgba(240, 98, 146, 0.1);
+  }
+
+  .left-pane, 
+.right-pane {
+    border: 2px dashed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(189, 189, 189, 0.3);
+    cursor: pointer;
+    background-color: rgba(233, 233, 233, 0.3);
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100px;
+    flex-direction: column;
 }
 
-h1 {
-  text-align: center;
+.left-pane p, 
+.right-pane p{
+    font-family: 500;
+    font-size: 20px;
 }
 
-.site_name{
-    font-size: 50px;
+.upload h3{
+    display: flex;
+    font-size: 30px;
+    font-weight: 700;
+}
+  
+  .confirm-btn {
+    display: block;
+    width: 400px;
+    height: 75px;
+    margin: 4rem auto;
+    padding: 0.2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: 800;
+    font-size: 30px;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #e91e63;
+  }
+
+  .file-limit{
+    color: #EB7AA5;
+  }
+
+.upload_your, .upload_ref{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
 }
 
-button {
-  background-color: blue;
-  align-self: flex-start;
-  padding: 1rem;
-  border-radius: 1rem;
+.upload h3{
+    align-self: center;
 }
 
-iframe {
-  width: 95%;
-  height: 95%;
+.intro-left img{
+    display:inline-block;
+    width: 25px;
+    height: 25px;
 }
 
-h2{
-    font-weight: 100;
-    font-size: 23px;
+.intro-left h1{
+    display: inline-block;
 }
