@@ -94,22 +94,7 @@ button.addEventListener("click", () => {
     })
     .then(res => res.json())
     .then(data => {
-      data = JSON.parse(data);
       console.log(data);
-      const analysis = document.createElement("div");
-      for (const entry of data) {
-        analysis.innerHTML += `
-          <div>
-            ${entry.correct}
-          </div>
-          <br>
-          <br>
-          <div>
-            ${entry.explanation}
-          </div>
-        `;
-      }
-      document.body.append(analysis);
     })
     .catch(err => console.log(err));
   }

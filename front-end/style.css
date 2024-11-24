@@ -9,7 +9,14 @@
   * {
     margin: 0;
     padding: 0;
+    border: none;
+    outline: none;
     box-sizing: border-box;
+    font-size: 1.3rem;
+  }
+
+  html {
+    font-size: 16px;
   }
   
   body {
@@ -17,15 +24,15 @@
     color: var(--text-color);
     background-color: var(--background-color);
     line-height: 1.6;
+    padding: 2rem 10rem;
   }
   
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
   }
   
   header .logo {
@@ -50,18 +57,13 @@
   
   .intro {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 2rem;
+    gap: 10rem;
     background-color: #fff;
   }
   
-  .intro-left {
-    flex: 1;
-  }
-  
   .intro-right {
-    flex: 1;
     display: flex;
     justify-content: center;
   }
@@ -71,26 +73,22 @@
     justify-content: space-around;
     padding: 2rem;
     background-color: #fff;
-    margin: 2rem 0;
   }
   
   .feature {
-    text-align: center;
-    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     margin: 0 1rem;
+    text-align: center;
+    width: 20rem;
   }
-  
-  .feature .icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
+
   .upload {
     display: flex;
     justify-content: space-around;
-    padding: 2rem;
     background-color: #fff;
-    margin: 2rem 0;
+    gap: 6rem;
   }
 
   .left-pane {
@@ -110,7 +108,6 @@
   .upload-box {
     border: 2px dashed var(--primary-color);
     border-radius: 10px;
-    padding: 2rem;
     cursor: pointer;
     margin: 1rem 0;
   }
@@ -125,20 +122,19 @@
   }
 
   .left-pane, 
-.right-pane {
-    border: 2px dashed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(189, 189, 189, 0.3);
-    cursor: pointer;
-    background-color: rgba(233, 233, 233, 0.3);
-    margin-left: 2%;
-    margin-right: 2%;
-    height: 100px;
-    flex-direction: column;
-}
+  .right-pane {
+      border: 2px dashed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: rgba(233, 233, 233, 0.3);
+      margin-left: 2%;
+      margin-right: 2%;
+      height: 100px;
+      flex-direction: column;
+  }
 
 .left-pane p, 
 .right-pane p{
@@ -156,7 +152,7 @@
     display: block;
     width: 400px;
     height: 75px;
-    margin: 4rem auto;
+    margin: 5rem auto 0;
     padding: 0.2rem;
     background-color: var(--primary-color);
     color: #fff;
@@ -176,16 +172,17 @@
     color: #EB7AA5;
   }
 
-.upload_your, .upload_ref{
+.upload_your, 
+.upload_ref {
     display: flex;
     flex-direction: column;
-    width: 500px;
     height: 200px;
     text-align: center;
     justify-content: center;
+    flex: 1;
 }
 
-.upload h3{
+.upload h3 {
     align-self: center;
 }
 
@@ -197,4 +194,8 @@
 
 .intro-left h1{
     display: inline-block;
+}
+
+main > * {
+  margin-bottom: 5rem;
 }
