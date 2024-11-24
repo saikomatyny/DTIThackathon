@@ -5,9 +5,10 @@ from .remake_to_pdf import string_to_pdf_with_colors
 
 
 prompt = """
-{sentences}
+You should see how forms are filled correctly and keep structure of form and give me the answer is user's input correct or not and if not how to fix it
+{context}
 Given sequences of two sentences, where the first is correct: and the second potentially has errors, evaluate both.
-If the second sentence deviates from the correctness of the first in meaning, grammar, or style, suggest necessary corrections.
+when giving advices and suggestions think in context of grammar and context of sentence but it mustn't be exact copy of first sentence
 Provide a correction in the format: "To make the second sentence correct ..."
 Include an explanation based on grammar rules, contextual clarity, and stylistic consistency: "Explanation: .... "
 and give the answer in {language}
