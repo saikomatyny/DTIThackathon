@@ -9,8 +9,8 @@ You should see how forms are filled correctly and keep structure of form and giv
 {context}
 Given sequences of two sentences, where the first is correct: and the second potentially has errors, evaluate both.
 when giving advices and suggestions think in context of grammar and context of sentence but it mustn't be exact copy of first sentence
-Provide a correction in the format: "To make the second sentence correct ..."
-Include an explanation based on grammar rules, contextual clarity, and stylistic consistency: "Explanation: .... "
+Provide a correction for the second sentence in the format: "Change ..."
+Include an explanation based on grammar rules, contextual clarity, and stylistic consistency without mentioning words "Second/first sentence": "Explanation: .... "
 and give the answer in {language}
 """
 

@@ -116,7 +116,7 @@ function createRecommendation(header, body) {
     ${header}
     </div>
     <div class="recommendation-body">
-    <h3>Explanation:</h3>
+    <h3>Why?</h3>
     ${body}
     </div>
   </div>
