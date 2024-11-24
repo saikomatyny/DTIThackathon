@@ -31,7 +31,7 @@ def correct_answer(item, filetype="pdf", language="english"):
     if filetype == "pdf":
         definer.get_pdf_differences(pdf_correct, pdf_user)
     
-    return solver.handle_differences(definer.differences, language), definer.list_of_differences
+    return solver.handle_differences(definer.differences, language), definer.highlighted_text
 
 
 
