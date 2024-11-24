@@ -28,13 +28,15 @@ class Definition:
             i += 1
 
     def higlight_differences(self, text):
+        self.highlighted_text = ""
         lines = text.split('\n')
         for i in range(len(lines)):
             if len(self.list_of_differences) and i == self.list_of_differences[0]:
                 self.highlighted_text += f"\033[91m{lines[i]}\033[0m" + '\n'
                 self.list_of_differences.pop(0)
-            
-        self.highlighted_text = self.highlighted_text.encode('utf-8')
+            else:
+                self.highlighted_text += lines[i] + '\n'
+    
 
     def get_pdf_differences(self, pdf_correct, pdf_user):
 
@@ -44,4 +46,3 @@ class Definition:
         text_user = self.extract_text_from_pdf(pdf_user)
 
         self.compare_texts(text_correct, text_user)
-

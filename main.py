@@ -21,4 +21,4 @@ async def create_files(request: Request):
 
     result, lines_differnece = correct_answer(item)
 
-    return {'string' : result, 'lines_difference' : lines_differnece}
+    return {'string' : result, 'highlighted_pdf' : lines_differnece}

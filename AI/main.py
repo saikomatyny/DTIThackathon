@@ -1,6 +1,7 @@
 from .model import Model
 from .definition import Definition
 from base64 import b64decode
+from .remake_to_pdf import string_to_pdf_with_colors
 
 
 prompt = """
@@ -32,6 +33,8 @@ def correct_answer(item, filetype="pdf", language="english"):
         definer.get_pdf_differences(pdf_correct, pdf_user)
     
     definer.higlight_differences(definer.extract_text_from_pdf(pdf_user))
+    string_to_pdf_with_colors(definer.highlighted_text)
+
     
     return solver.handle_differences(definer.differences, language), definer.highlighted_text
 
