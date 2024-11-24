@@ -42,7 +42,7 @@ async function handleFileSelection(event) {
   const file = input.files[0];
 
   if (file) {
-    const pane = input.dataset.pane === "left" ? leftPane : rightPane;
+    const pane = input.parentElement === leftPane ? leftPane : rightPane;
     await handleFile(file, pane);
   }
 }
@@ -87,6 +87,7 @@ function convertFileToBase64(file) {
 
 const button = document.querySelector("button");
 button.addEventListener("click", () => {
+  console.log(payload);
   if (payload.userFile && payload.templateFile) {
     fetch("http://localhost:8000", {
       method: "POST",
