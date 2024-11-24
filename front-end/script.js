@@ -8,6 +8,8 @@ const payload = {
   templateFile: ""
 };
 
+const resultField = document.querySelector(".result-field");
+
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
   leftPane.addEventListener(eventName, preventDefaults, true);
   rightPane.addEventListener(eventName, preventDefaults, true);
@@ -95,8 +97,28 @@ button.addEventListener("click", () => {
     })
     .then(res => res.json())
     .then(data => {
+      data = JSON.parse(data.string);
       console.log(data);
+      for (const entry of data) {
+        resultField.innerHTML += createRecommendation(entry.correct, entry.explanation);
+      }
+      resultField.hidden = false;
     })
     .catch(err => console.log(err));
   }
 });
+
+function createRecommendation(header, body) {
+  return `
+  <div class="recommendation">
+    <div class="recommendation-header">
+    <h3>It should be:</h3>
+    ${header}
+    </div>
+    <div class="recommendation-body">
+    <h3>Explanation:</h3>
+    ${body}
+    </div>
+  </div>
+  `
+}
